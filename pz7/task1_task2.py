@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def rotation_method(A, eps=1e-10, max_iter=1000):
+def rotation_method(A, eps=1e-500, max_iter=10000000):
     n = len(A)
     
     V = np.eye(n)
@@ -35,6 +35,8 @@ def rotation_method(A, eps=1e-10, max_iter=1000):
         D = H.T @ D @ H
         
         V = V @ H
+
+        print(iteration)
     
     raise Exception("Метод не сошелся за максимальное число итераций")
 
